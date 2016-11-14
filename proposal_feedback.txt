@@ -1,0 +1,11 @@
+The plan looks good to me. This proposal is one of the most detailed I’ve seen so far. Below is a few of my suggestions to help you get this project (at least part of) done by deadline:
+
+1. If you have a working game ready to be ported, great! If not, defer the game implementation. Defer it or not implemented it at all. You can use fake data for other functionalities.
+2. Get the basic, ugly version working locally, then think about using Heroku, Bootstrap etc to make it better. Tweeting these tools/libraries could take tons of time.
+3. You can first implement 3 different profile pages for each action, then try to merge them into one. Honestly I did not quite understand this part, but I feel that using a single profile page will be hard.
+4. Don’t work on admin unless you get all other parts (except the game part) working correctly.
+5. Lastly, you don’t have to stick with the structures listed in the proposal, if you feel your choice is not good, change it. You can always ask me, or other TAs, or the Professor for help.
+
+Wish you guys/girls good luck!
+
+- Shen

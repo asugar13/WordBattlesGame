@@ -1,0 +1,1 @@
+var UserBase = require('../models/<THE DATABASE FILE>');

@@ -1,30 +1,51 @@
 # WordBattles
 
-Working directory (project_directory/):
+##Working directory (project_directory/):
 
-*style and scripts*
+###*Style & scripts*
+```
 assets/
+
 	css/
+
 		style.css
+
 	scripts/
+
 		someScript.js
+```
 
-*storing database*
+###*Storing database*
+```
 data/
+
 	user_database.json
-	
-*database schema*
+```
+
+###*Database schema*
+```
 models/
-	need files (Asier wanted to get the starter files)
 
-*html views and images/icons (if needed)*
+	need files (Asier wanted to get the starter files)
+```
+
+###*HTML views & images/icons (if needed)*
+```
 public/
+
 	index.html
+```
 
-*data manipulation*
+###*Data manipulation*
+```
 routes/
-	user_routes.js
 
-*react*
+	user_routes.js
+```
+
+###*React*
+```
 src/
+
 	need files (Asier wanted to get the starter files)
+```

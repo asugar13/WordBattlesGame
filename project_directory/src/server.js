@@ -7,7 +7,9 @@ var fs = require('fs');
 
 var app = express();
 // Set views path, template engine and default layout
-app.use(express.static(__dirname + '../assets'));
+app.use(express.static(__dirname + '../assets/css'));
+app.use(express.static(__dirname + '../assets/scripts'));
+
 app.use(express.static(__dirname + '../public'));
 app.use(express.static(__dirname + '/'));
 app.engine('.html', require('ejs').__express);
@@ -30,17 +32,17 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 
 //main page
 app.get('/', function(req, res) {
-    res.render('index', {
+    res.render('../public/index.html', {
         errors: ''
     });
 });
 
 
-app.get();
-
-app.post();
-
-app.delete();
+// app.get();
+//
+// app.post();
+//
+// app.delete();
 
 
 

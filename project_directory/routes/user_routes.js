@@ -1,1 +1,1 @@
-var UserBase = require('../models/<THE DATABASE FILE>');
+var UserBase = require('../models/user_model.js');

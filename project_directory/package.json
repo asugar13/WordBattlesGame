@@ -1,0 +1,25 @@
+{
+  "name": "wordbattles",
+  "version": "1.0.0",
+  "description": "WebApp implementing hangman game.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC309-Fall-2016/WordBattles.git"
+  },
+  "author": "Alexander Chernous, Justin Chew, Pak Ki Lam, Asier Ugarteche.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSC309-Fall-2016/WordBattles/issues"
+  },
+  "homepage": "https://github.com/CSC309-Fall-2016/WordBattles#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0"
+  }
+}

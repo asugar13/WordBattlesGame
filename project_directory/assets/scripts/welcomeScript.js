@@ -19,10 +19,8 @@ welcomePage.submitHandler = function(evt) {
 				});
 			}
 			if (answer == "isAdmin") {
-				console.log('jusquici');
 
 				$.get('/admin', function(data){
-					console.log('jusqu');
 					window.location.href = "/admin"
 					console.log("that's it");
 

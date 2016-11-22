@@ -18,5 +18,11 @@
         "username": "average_guy",
         "password": "average",
         "score": "19"
+    },
+    {
+        "username": "main_admin",
+        "password": "admin",
+        "score": "0",
+        "isAdmin": true
     }
 ]

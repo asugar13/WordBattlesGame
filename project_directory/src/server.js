@@ -38,9 +38,11 @@ app.get('/login', user_routes.LogIn);
 
 app.get('/main', function(req, res) {
   res.render(__dirname+'/../public/main_page.html');
+});
 
-
-})
+app.get('/admin', function(req, res) {
+  res.render(__dirname+'/../public/admin_page.html');
+});
 //routes
 
 //main page

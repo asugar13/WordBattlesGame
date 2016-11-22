@@ -11,13 +11,24 @@ welcomePage.submitHandler = function(evt) {
 		$.get('/login', {user: username, key: password}, function(data){
 			var answer = data;
 			console.log(answer);
-			if (answer == "OK") {
+			if (answer == "isUser") {
 				$.get('/main', function(data){
 					window.location.href = "/main"
 					console.log("that's it");
 
 				});
 			}
+			if (answer == "isAdmin") {
+				console.log('jusquici');
+
+				$.get('/admin', function(data){
+					console.log('jusqu');
+					window.location.href = "/admin"
+					console.log("that's it");
+
+				});
+			}
+
 });
 }
 

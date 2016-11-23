@@ -60,7 +60,7 @@ src/
 	server
 ```
 
-###*Server*
+###*package.json*
 ```
 package.json: make sure to update this every time you add a node module
 ```

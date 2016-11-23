@@ -50,3 +50,6 @@ src/
 
 	need files (Asier wanted to get the starter files)
 ```
+
+In order to run the project:
+mongoimport --db usersdb --collection users --type json --file data/user_database.json --jsonArray

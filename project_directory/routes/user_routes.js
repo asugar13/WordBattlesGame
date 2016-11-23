@@ -9,12 +9,20 @@ exports.LogIn = function(req, res) {
       var key = req.query.key;
 
       User.find({username: user, password: key}, function(err, user) {
-          if (err) throw err;
+        //  if (err) throw err;
           console.log(user);
-          if (user[0]) {
-            res.send('OK');
+          if (user.length > 0) {
+            if(user[0].isAdmin == true) {
+              return res.send("isAdmin");
+            }
+            if (user[0] && !(user[0].isAdmin)) {
+              return res.send('isUser');
+            }
+            else {
+              return res.send('error');
+            }
           }
-          // res.send(allUsers);
+
       });
     }
 

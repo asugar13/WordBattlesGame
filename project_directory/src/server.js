@@ -3,6 +3,9 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('cookie-session');
+
 var fs = require('fs');
 // var expressValidator = require('express-validator');
 var path = require('path');
@@ -23,6 +26,14 @@ app.set('views', __dirname);
 app.set('views', __dirname +'/../public');
 app.set('view engine', 'html');
 
+
+// Set up to use a session
+app.use(cookieParser('session'));
+app.use(session({
+    secret: 'asdf'
+}));
+
+
 // The request body is received on GET or POST.
 // A middleware that just simplifies things a bit.
 app.use(bodyParser.json()); // to support JSON-encoded bodies
@@ -32,18 +43,19 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 // app.use(expressValidator);  //required for Express-Validator
 
 
-
 //functions
 app.get('/login', user_routes.LogIn);
+app.get('/logout', user_routes.Logout);
+app.get('/user_info', user_routes.UserInfo);
 
 app.get('/main', function(req, res) {
   res.render(__dirname+'/../public/main_page.html');
 });
 
-app.get('/admin', function(req, res) {
-  res.render(__dirname+'/../public/admin_page.html');
+app.get('/profile', function(req, res) {
+  res.render(__dirname+'/../public/profile_page.html');
 });
-//routes
+
 
 //main page
 app.get('/', function(req, res) {

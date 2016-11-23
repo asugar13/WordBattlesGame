@@ -13,7 +13,7 @@ welcomePage.submitHandler = function(evt) {
 			console.log(answer);
 			if (answer == "isUser") {
 				$.get('/main', function(data){
-					window.location.href = "/main"
+					window.location.href = "/main";
 					console.log("that's it");
 
 				});

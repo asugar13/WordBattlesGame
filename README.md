@@ -39,7 +39,7 @@ models/
 ###*Node*
 ```
 node_modules/
-	various modules for node, make sure to add new ones in this folder and commit, also don't forget to update the package.json
+	various modules for node, make sure to add new ones in this folder
 ```
 
 ###*HTML views & images/icons (if needed)*

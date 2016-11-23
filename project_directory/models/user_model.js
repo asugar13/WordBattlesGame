@@ -19,7 +19,7 @@ var UserSchema = new Schema(
             type: Number, default: 0
         },
         isAdmin: {
-          type: Boolean, default: false
+            type: Boolean, default: false
         }
     },
     {

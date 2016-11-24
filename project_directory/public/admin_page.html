@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>WordBattles</title>
+    <title>Admin - WordBattles</title>
 
     <link rel="stylesheet" href="../css/style.css">
 
@@ -15,12 +15,18 @@
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- not a real script yet -->
     <script src="../scripts/welcomeScript.js"></script>
+    <script src="../scripts/mainScript.js"></script>
+    <script src="../scripts/logoutScript.js"></script>
 </head>
 <body>
     <h1>ADMIN PAGE</h1>
-
+    <form id="profile" action="/profile" method="get">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Profile</button>
+    </form>
+    <form id="logout" action="/logout">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
+    </form>
 
 </body>
 </html>

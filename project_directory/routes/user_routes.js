@@ -48,7 +48,9 @@ exports.UserInfo = function(req, res) {
 
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
+    console.log(req.session);
     req.session = null;
+    console.log(req.session);
     return res.json({});
 }
 

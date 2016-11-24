@@ -40,7 +40,6 @@ app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
     extended: true
 }));
-// app.use(expressValidator);  //required for Express-Validator
 
 
 //functions
@@ -52,6 +51,10 @@ app.post('/signup', user_routes.SignUp);
 
 app.get('/main', function(req, res) {
   res.render(__dirname+'/../public/main_page.html');
+});
+
+app.get('/admin', function(req, res) {
+  res.render(__dirname+'/../public/admin_page.html');
 });
 
 app.get('/profile', function(req, res) {

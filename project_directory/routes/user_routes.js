@@ -51,3 +51,34 @@ exports.Logout = function(req, res) {
     req.session = null;
     return res.json({});
 }
+
+//Signs up new user to database
+exports.SignUp = function(req, res) {
+  var user_name = req.body.user;
+  var key = req.body.password;
+  console.log(user_name);
+  console.log(key);
+
+
+  if (user_name && key) {
+
+    User.find({username: user_name}, function(err, user) {
+        //if user is already stored in the mongoDB
+        if (user.length > 0) {
+            return res.send("Already Stored");
+          }
+          else {
+            var the_user = new User({username: user_name, password:key, score:0,
+                    isAdmin: false});
+            console.log(the_user);
+            the_user.save();
+            User.find({}, function(err,users){
+              console.log(users);
+            });
+          }
+        })
+
+
+
+  }
+}

@@ -46,6 +46,8 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 app.get('/login', user_routes.LogIn);
 app.get('/logout', user_routes.Logout);
 app.get('/user_info', user_routes.UserInfo);
+app.post('/signup', user_routes.SignUp);
+
 
 app.get('/main', function(req, res) {
   res.render(__dirname+'/../public/main_page.html');
@@ -58,6 +60,11 @@ app.get('/admin', function(req, res) {
 app.get('/profile', function(req, res) {
   res.render(__dirname+'/../public/profile_page.html');
 });
+
+app.get('/signup', function(req, res) {
+  res.render(__dirname+'/../public/signup_page.html');
+});
+
 
 
 //main page

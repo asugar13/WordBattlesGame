@@ -60,7 +60,6 @@ exports.DisplayDB = function(req, res) {
     });
 };
 
-<<<<<<< HEAD
 exports.DisplayTop20 = function(req, res) {
 
   var query = User.find({});
@@ -84,8 +83,6 @@ exports.UserLookup = function(req, res) {
   })
 }
 
-=======
->>>>>>> 784536d9ce89ee4b427c61cb7e4908cea1da683a
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
     console.log(req.session);

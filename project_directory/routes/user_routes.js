@@ -3,6 +3,7 @@ var User = require('../models/user_model');
 exports.LogIn = function(req, res) {
     console.log('Logging In');
 
+
     if (req.body.user && req.body.password) {
       req.session.user = req.body.user;
 
@@ -29,7 +30,7 @@ exports.LogIn = function(req, res) {
           }
 
       });
-    } 
+    }
 
 };
 
@@ -52,7 +53,6 @@ exports.UserInfo = function(req, res) {
 };
 
 exports.DisplayDB = function(req, res) {
-
     User.find({}, function(err, all_users) {
         if (err) throw err;
         console.log(all_users);
@@ -60,6 +60,7 @@ exports.DisplayDB = function(req, res) {
     });
 };
 
+<<<<<<< HEAD
 exports.DisplayTop20 = function(req, res) {
 
   var query = User.find({});
@@ -83,6 +84,8 @@ exports.UserLookup = function(req, res) {
   })
 }
 
+=======
+>>>>>>> 784536d9ce89ee4b427c61cb7e4908cea1da683a
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
     console.log(req.session);

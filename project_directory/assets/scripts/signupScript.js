@@ -19,7 +19,7 @@ signupPage.submitHandler = function(evt) {
       $("#responseField").html("<p id=signupSuccess>Successful Signup</p>");
       setTimeout(function(){
         $.get('/main', function(data){
-          window.location.href = "/main";
+          window.location.href = "/";
         })
       }, 500);
     }

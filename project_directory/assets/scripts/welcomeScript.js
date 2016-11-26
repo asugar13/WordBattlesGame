@@ -24,6 +24,12 @@ welcomePage.submitHandler = function(evt) {
 					console.log("that's it");
 				});
 			}
+			if (answer == "invalidUser") {
+				if(!$(".form-signin-heading p").length) {
+					$(".form-signin-heading").append("<p style='color:red'>Invalid user login. Please try again. </p>");
+				}
+				
+			}
 		});
 }
 

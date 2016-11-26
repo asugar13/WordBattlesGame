@@ -22,6 +22,10 @@ exports.LogIn = function(req, res) {
               return res.send('error');
             }
           }
+          else
+          {
+            return res.send('invalidUser');
+          }
 
       });
     }

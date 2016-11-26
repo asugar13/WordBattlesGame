@@ -2,7 +2,7 @@ var User = require('../models/user_model');
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
-    
+
     if (req.body.user && req.body.password) {
       req.session.user = req.body.user;
 
@@ -58,6 +58,22 @@ exports.DisplayDB = function(req, res) {
         console.log(all_users);
         res.send(all_users);
     });
+};
+
+exports.DisplayTop20 = function(req, res) {
+
+  var query = User.find({});
+
+  query.select('username score');
+  query.sort({'score': -1});
+  query.limit(20);
+
+  query.exec(function(err, top_users) {
+        if (err) throw err;
+        console.log(top_users);
+        res.send(top_users);
+  });
+
 };
 
 exports.UserLookup = function(req, res) {

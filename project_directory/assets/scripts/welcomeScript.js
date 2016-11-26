@@ -11,24 +11,40 @@ welcomePage.submitHandler = function(evt) {
 		$.get('/login', {user: username, key: password}, function(data){
 			var answer = data;
 			console.log(answer);
-			if (answer == "OK") {
+			if (answer == "isUser") {
 				$.get('/main', function(data){
 					window.location.href = "/main";
 					console.log("that's it");
-
 				});
 			}
-});
+			if (answer == "isAdmin") {
+
+				$.get('/admin', function(data){
+					window.location.href = "/admin"
+					console.log("that's it");
+				});
+			}
+		});
 }
+
+
 
 welcomePage.init = function() {
 
 	$('#LogInForm').submit(this.submitHandler);
+
+	$("#signUpbut").click(function(evt) {
+		$.get('/signup', function(data){
+			window.location.href = "/signup";
+		});
+	});
 
 }
 
 
 // Start the app.
 $(document).ready(function() {
+
 	welcomePage.init();
+
 });

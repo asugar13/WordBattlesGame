@@ -3,6 +3,7 @@ var admin = {};
 
 admin.init = function() {
   $("#displaydiv").empty();
+  $("#AddUserForm").hide();
   console.log('this is working');
   $.get('/database', function(data){
     console.log(data[0].username);
@@ -18,8 +19,33 @@ admin.init = function() {
 
     }
   });
-
 }
+
+admin.toggleAddForm = function() {
+
+  if ($("#AddUserForm").is(":visible")) {
+    $("#AddUserForm").hide();
+  }
+  else{
+    $("#AddUserForm").show();
+  }
+};
+
+admin.addUser = function() {
+
+  let inputUsername = $('#inputEmail').val();
+  let inputPassword = $('#inputPassword').val();
+
+
+  $.post('/addUser', {user: inputUsername, password: inputPassword}, function(data){
+    if(data == 'usernameTaken'){
+      $("#responseField").html("<p id=signupError>Username Taken</p>");
+    } else{
+      window.location.href = "/admin";
+    }
+  });
+
+};
 
 
 $(document).ready(function() {

@@ -49,6 +49,7 @@ app.get('/user_info', user_routes.UserInfo);
 app.post('/signup', user_routes.SignUp);
 app.get('/database', user_routes.DisplayDB);
 app.get('/top20', user_routes.DisplayTop20);
+app.post('/addUser',user_routes.SignUp);
 
 
 app.get('/main', function(req, res) {

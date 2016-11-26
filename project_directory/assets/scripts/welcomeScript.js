@@ -2,13 +2,10 @@ var welcomePage = {};
 
 welcomePage.submitHandler = function(evt) {
 		evt.preventDefault();
-		var formData = $('form').serialize();
-		console.log(formData); //prints nothing so I decided to take username and password manually from respective divs
-		var username = $('#inputEmail').val();
-		console.log(username);
-		var password = $('#inputPassword').val();
-		console.log(password);
-		$.get('/login', {user: username, key: password}, function(data){
+		var formData = $('#LogInForm').serialize();
+		console.log(formData);
+	
+		$.post('/login', formData, function(data){
 			var answer = data;
 			console.log(answer);
 			if (answer == "isUser") {

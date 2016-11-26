@@ -2,11 +2,12 @@ var User = require('../models/user_model');
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
-    if (req.query.user && req.query.key) {
-      req.session.user = req.query.user;
+    
+    if (req.body.user && req.body.password) {
+      req.session.user = req.body.user;
 
       var user = req.session.user;
-      var key = req.query.key;
+      var key = req.body.password;
 
       User.find({username: user, password: key}, function(err, user) {
         //  if (err) throw err;
@@ -28,7 +29,7 @@ exports.LogIn = function(req, res) {
           }
 
       });
-    }
+    } 
 
 };
 

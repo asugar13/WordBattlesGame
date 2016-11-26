@@ -55,7 +55,12 @@ exports.DisplayDB = function(req, res) {
     });
 };
 
+exports.UserLookup = function(req, res) {
+  var user_name = req.body.user;
+  User.find({username: user_name}, function(err, user){
 
+  })
+}
 
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
@@ -78,7 +83,7 @@ exports.SignUp = function(req, res) {
     User.find({username: user_name}, function(err, user) {
         //if user is already stored in the mongoDB
         if (user.length > 0) {
-            return res.send("Already Stored");
+            return res.send("usernameTaken");
           }
           else {
             var the_user = new User({username: user_name, password:key, score:0,
@@ -88,6 +93,7 @@ exports.SignUp = function(req, res) {
             User.find({}, function(err,users){
               console.log(users);
             });
+            res.send("signupSuccessful");
           }
         })
 

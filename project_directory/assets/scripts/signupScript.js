@@ -10,17 +10,24 @@ signupPage.submitHandler = function(evt) {
   console.log(formdata);
   // var toSend = JSON.stringify(formdata);
 
-  $.ajax({
-  type: "POST",
-  url: "/signup",
-  data: formdata,
-  // success: function() {$("#responseField").innerHTML = "Succesful signup!"},
+  $.post('/signup', formdata, function(data){
+    if(data == 'usernameTaken'){
+        //alert("Username Taken");
+        $("#responseField").html("<p id=signupError>Username Taken</p>");
+    } else{
+      //alert("Signup Successful");
+      $("#responseField").html("<p id=signupSuccess>Successful Signup</p>");
+      setTimeout(function(){
+        $.get('/main', function(data){
+          window.location.href = "/main";
+        })
+      }, 500);
+    }
   });
 };
 
 
 signupPage.init = function() {
-
 	$('#SignupForm').submit(this.submitHandler);
 
 }

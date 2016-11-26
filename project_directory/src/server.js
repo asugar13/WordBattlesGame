@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 
 
 //functions
-app.get('/login', user_routes.LogIn);
+app.post('/login', user_routes.LogIn);
 app.get('/logout', user_routes.Logout);
 app.get('/user_info', user_routes.UserInfo);
 app.post('/signup', user_routes.SignUp);

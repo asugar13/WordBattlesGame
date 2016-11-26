@@ -46,6 +46,17 @@ exports.UserInfo = function(req, res) {
 
 };
 
+exports.DisplayDB = function(req, res) {
+
+    User.find({}, function(err, all_users) {
+        if (err) throw err;
+        console.log(all_users);
+        res.send(all_users);
+    });
+};
+
+
+
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
     console.log(req.session);

@@ -61,7 +61,7 @@ exports.DisplayDB = function(req, res) {
 };
 
 exports.UserLookup = function(req, res) {
-	//console.log("route: " + req.query.user);
+	console.log("route: " + req.query.user);
   var user_name = req.query.user;
   User.find({username: user_name}, function(err, user){
 	if (user[0]) {

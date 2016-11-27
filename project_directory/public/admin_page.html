@@ -15,14 +15,16 @@
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <script src="../scripts/welcomeScript.js"></script>
-    <script src="../scripts/mainScript.js"></script>
     <script src="../scripts/logoutScript.js"></script>
     <script src="../scripts/adminScript.js"></script>
 
 </head>
 <body>
     <h1>ADMIN PAGE</h1>
+    <div id="focusdiv" hidden>User ID: <span name="user_id"></span> <br>
+       User password: <input type="text" name="password" hidden></input> <br>
+       User score: <input type="text" name="score" hidden></input>        <button class="btn btn-lg btn-primary btn-block" onclick="updateHandler(this)">Update User</button>
+ </div>
     <form id="profile" action="/profile" method="get">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Profile</button>
     </form>

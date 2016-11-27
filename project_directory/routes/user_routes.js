@@ -25,7 +25,23 @@ exports.LogIn = function(req, res) {
 
       });
     }
+};
 
+exports.UpdateUser = function(req, res){
+  // var object = JSON.parse(req.body);
+  console.log('executing UpdateUser');
+  var name = req.body.user_name;
+  User.find({username: name}, function(err, user){
+    if (err) throw err;
+    user[0].password = req.body.user_key;
+    user[0].score = req.body.user_rate;
+    user[0].save(function(err){
+      if (err) throw err;
+    });
+});
+    var answer = {msg: "Successful Update"};
+    var formatted_answer = JSON.stringify(answer);
+    res.send(formatted_answer);
 };
 
 exports.UserInfo = function(req, res) {
@@ -47,13 +63,14 @@ exports.UserInfo = function(req, res) {
 };
 
 exports.DisplayDB = function(req, res) {
-
     User.find({}, function(err, all_users) {
         if (err) throw err;
         console.log(all_users);
         res.send(all_users);
     });
 };
+
+
 
 
 

@@ -33,6 +33,15 @@ exports.LogIn = function(req, res) {
     }
 };
 
+// exports.DeleteUser = function(req, res) {
+//  // +  var result = res;
+//  +  var user = req.body.username;
+//  +  User.remove({username: user}, function(req, res){
+//  +  });
+//  +    res.send("deleteSuccessful");
+//
+//  +}
+
 exports.UpdateUser = function(req, res){
   // var object = JSON.parse(req.body);
   console.log('executing UpdateUser');

@@ -1,4 +1,4 @@
-// Start the app.
+
 $(document).ready(function() {
 	$.get('/user_info', function(data){
 		var answer = data.answer;

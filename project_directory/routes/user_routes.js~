@@ -2,8 +2,7 @@ var User = require('../models/user_model');
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
-
-
+    
     if (req.body.user && req.body.password) {
       req.session.user = req.body.user;
 
@@ -30,7 +29,7 @@ exports.LogIn = function(req, res) {
           }
 
       });
-    }
+    } 
 
 };
 
@@ -53,6 +52,7 @@ exports.UserInfo = function(req, res) {
 };
 
 exports.DisplayDB = function(req, res) {
+
     User.find({}, function(err, all_users) {
         if (err) throw err;
         console.log(all_users);
@@ -60,24 +60,8 @@ exports.DisplayDB = function(req, res) {
     });
 };
 
-exports.DisplayTop20 = function(req, res) {
-
-  var query = User.find({});
-
-  query.select('username score');
-  query.sort({'score': -1});
-  query.limit(20);
-
-  query.exec(function(err, top_users) {
-        if (err) throw err;
-        console.log(top_users);
-        res.send(top_users);
-  });
-
-};
-
 exports.UserLookup = function(req, res) {
-	//console.log("route: " + req.query.user);
+	console.log("route: " + req.query.user);
   var user_name = req.query.user;
   User.find({username: user_name}, function(err, user){
 	if (user[0]) {

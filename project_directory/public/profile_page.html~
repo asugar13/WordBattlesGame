@@ -14,7 +14,6 @@
     <script src="../scripts/profileScript.js"></script>
     <script src="../scripts/logoutScript.js"></script>
 	<script src="../scripts/lookUp.js"></script>
-	<script src="../scripts/chatRedirect.js"></script>
 </head>
 <body>
     <h1>Your Profile</h1>

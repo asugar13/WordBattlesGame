@@ -1,0 +1,16 @@
+var chatPage = {};
+
+chatPage.submitHandler = function(evt) {
+	evt.preventDefault();
+	window.location.href = "/chat";
+}
+
+chatPage.init = function() {
+	$('#chatbut').submit(this.submitHandler);
+}
+
+
+// Start the app.
+$(document).ready(function() {
+	chatPage.init();
+});

@@ -42,14 +42,21 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 }));
 
 
-//functions
-app.get('/login', user_routes.LogIn);
+//routes
+app.post('/login', user_routes.LogIn);
 app.get('/logout', user_routes.Logout);
 app.get('/user_info', user_routes.UserInfo);
+app.get('/user_lookup', user_routes.UserLookup);
 app.post('/signup', user_routes.SignUp);
 app.post('/database', user_routes.UpdateUser);
 app.get('/database', user_routes.DisplayDB);
+app.get('/top20', user_routes.DisplayTop20);
+app.post('/addUser',user_routes.SignUp);
 
+
+app.get('/chat', function(req, res) {
+  res.render(__dirname+'/../public/chat_page.html');
+});
 
 app.get('/main', function(req, res) {
   res.render(__dirname+'/../public/main_page.html');

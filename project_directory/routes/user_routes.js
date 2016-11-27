@@ -98,6 +98,14 @@ exports.Logout = function(req, res) {
     return res.json({});
 }
 
+exports.DeleteUser = function(req, res) {
+  var result = res;
+  var user = req.body.username;
+  User.remove({username: user}, function(req, res){
+    result.send("deleteSuccessful");
+  });
+}
+
 //Signs up new user to database
 exports.SignUp = function(req, res) {
   var user_name = req.body.user;

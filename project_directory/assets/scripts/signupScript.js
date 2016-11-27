@@ -29,7 +29,6 @@ signupPage.submitHandler = function(evt) {
 
 signupPage.init = function() {
 	$('#SignupForm').submit(this.submitHandler);
-
 }
 
 

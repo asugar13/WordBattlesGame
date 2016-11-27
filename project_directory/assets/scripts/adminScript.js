@@ -17,24 +17,6 @@ function deleteButtonOnClick(){
  });
 }
 
-function deleteButtonOnClick(){
-  $(".deleteUser").click(function(){
-    console.log('executing deleteButtonOnClick');
-   var button = this;
-   var user = $(button).parents("tr:first").children("td#Username").html();
-   $.ajax({
-     url: '/admin',
-     type: 'DELETE',
-     data: {username: user},
-     success: function(result) {
-       var placeholder = $(button).parents("tr:first");
-       console.log(placeholder);
-       $(button).parents("tr:first").remove();
-     }
-   });
- });
-}
-
 admin.init = function() {
   $("#displaydiv").empty();
   $("#AddUserForm").hide();

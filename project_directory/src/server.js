@@ -25,6 +25,7 @@ app.engine('.html', require('ejs').__express);
 app.set('views', __dirname);
 app.set('views', __dirname +'/../public');
 app.set('view engine', 'html');
+// +app.delete('/admin', user_routes.DeleteUser);
 
 
 // Set up to use a session

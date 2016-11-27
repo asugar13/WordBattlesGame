@@ -3,6 +3,7 @@ var admin = {};
 
 function deleteButtonOnClick(){
   $(".deleteUser").click(function(){
+    console.log('executing deleteButtonOnClick');
    var button = this;
    var user = $(button).parents("tr:first").children("td#Username").html();
    $.ajax({
@@ -21,7 +22,7 @@ function deleteButtonOnClick(){
 admin.init = function() {
   $("#displaydiv").empty();
   $("#AddUserForm").hide();
-  console.log('this is working');
+  console.log('executing admin.init() function');
   $.get('/database', function(data){
     console.log(data[0].username);
     console.log('\n');
@@ -30,7 +31,7 @@ admin.init = function() {
       nested_user.append("<td id=Username>" + data[i].username + "</td>");
       nested_user.append("<td>" + data[i].password + "</td>");
       nested_user.append("<td>" + data[i].score + "</td>");
-      nested_user.append("<td> <button> Edit</button> <button class=deleteUser>Delete</button> </td>");
+      nested_user.append("<td> <button onclick='admin.editHandler(this)'> Edit</button> <button class='deleteUser'>Delete</button> </td>");
 
       $("table").append(nested_user);
     }
@@ -38,12 +39,12 @@ admin.init = function() {
   });
 }
 
-editHandler = function(evt){
+admin.editHandler = function(evt){
   $('#focusdiv').toggle(true);
-  $("input[name=password]").toggle(true);
-  $("input[name=score]").toggle(true);
+  $("input[name='password']").toggle(true);
+  $('input[name="score"]').toggle(true);
   $('span[name="user_id"]').empty();
-  $("div[name=password]").empty();
+  $('div[name="password"]').empty();
   $("div[name=score]").empty();
   console.log('executing editHandler');
   var row = $(evt.parentNode.parentNode).children();
@@ -52,7 +53,7 @@ editHandler = function(evt){
   $("input[name=score]").val(row[2].innerHTML);
 }
 
-updateHandler = function(evt){
+admin.updateHandler = function(evt){
   console.log('executing updateHandler');
     focusdata = $(evt.parentNode).children();
     var user_id = focusdata[0].innerHTML;

@@ -35,6 +35,7 @@
     <form id="logout" action="/logout">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
     </form>
+    <button class="btn btn-lg btn-primary btn-block" onclick="admin.resetDBhandler()">Reset Database</button>
 
     <button class="btn btn-lg btn-primary btn-block" onclick="admin.toggleAddForm()">Add User</button>
     <div id="AddUserForm">
@@ -43,6 +44,7 @@
         <button id="signupButton" class="btn btn-lg btn-primary btn-block" onclick="admin.addUser()">Add</button>
         <p id="responseField"/>
     </div>
+
 
 
     <table style="width:100%">

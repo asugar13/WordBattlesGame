@@ -37,6 +37,19 @@ admin.init = function() {
   });
 }
 
+admin.resetDBhandler = function() {
+  console.log("executing resetDBhandler");
+  var trivial = 0;
+  $.post('/admin',trivial ,function(data){
+    if(data == 'Successful Reset'){
+      window.location.href = "/admin";
+    }
+
+  });
+
+};
+
+
 admin.editHandler = function(evt){
   $('#focusdiv').toggle(true);
   $("input[name='password']").toggle(true);

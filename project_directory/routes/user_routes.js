@@ -137,8 +137,15 @@ exports.ResetDB = function(req, res) {
 exports.SignUp = function(req, res) {
   var user_name = req.body.user;
   var key = req.body.password;
+  var user_score = parseInt(req.body.score);
   console.log(user_name);
   console.log(key);
+  console.log(user_score);
+
+  if(!user_score)
+  {
+    user_score = 0;
+  }
 
 
   if (user_name && key) {
@@ -149,7 +156,7 @@ exports.SignUp = function(req, res) {
             return res.send("usernameTaken");
           }
           else {
-            var the_user = new User({username: user_name, password:key, score:0,
+            var the_user = new User({username: user_name, password:key, score: user_score,
                     isAdmin: false});
             console.log(the_user);
             the_user.save();

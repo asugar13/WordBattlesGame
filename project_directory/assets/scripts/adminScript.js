@@ -106,9 +106,10 @@ admin.addUser = function() {
 
   let inputUsername = $('#inputEmail').val();
   let inputPassword = $('#inputPassword').val();
+  let inputScore = $('#inputScore').val();
 
 
-  $.post('/addUser', {user: inputUsername, password: inputPassword}, function(data){
+  $.post('/addUser', {user: inputUsername, password: inputPassword, score: inputScore}, function(data){
     if(data == 'usernameTaken'){
       $("#responseField").html("<p id=signupError>Username Taken</p>");
     } else{

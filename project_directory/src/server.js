@@ -54,6 +54,7 @@ app.get('/database', user_routes.DisplayDB);
 app.get('/top20', user_routes.DisplayTop20);
 app.post('/addUser',user_routes.SignUp);
 app.delete('/admin', user_routes.DeleteUser);
+app.post('/admin', user_routes.ResetDB);
 
 app.get('/chat', function(req, res) {
   res.render(__dirname+'/../public/chat_page.html');

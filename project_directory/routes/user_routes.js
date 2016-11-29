@@ -33,14 +33,6 @@ exports.LogIn = function(req, res) {
     }
 };
 
-// exports.DeleteUser = function(req, res) {
-//  // +  var result = res;
-//  +  var user = req.body.username;
-//  +  User.remove({username: user}, function(req, res){
-//  +  });
-//  +    res.send("deleteSuccessful");
-//
-//  +}
 
 exports.UpdateUser = function(req, res){
   // var object = JSON.parse(req.body);
@@ -133,6 +125,14 @@ exports.DeleteUser = function(req, res) {
   });
 }
 
+exports.ResetDB = function(req, res) {
+  var flag = false;
+  User.remove({isAdmin: {$ne: true}}, function(err, the_users){
+    if (err) throw err;
+    res.send('Successful Reset');
+  })
+}
+
 //Signs up new user to database
 exports.SignUp = function(req, res) {
   var user_name = req.body.user;
@@ -159,8 +159,5 @@ exports.SignUp = function(req, res) {
             res.send("signupSuccessful");
           }
         })
-
-
-
   }
 }

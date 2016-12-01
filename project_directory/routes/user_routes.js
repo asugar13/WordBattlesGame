@@ -1,10 +1,9 @@
 var models = require('../models/user_model');
 
+exports.connectedUsers = [];
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
-
-
     if (req.body.user && req.body.password) {
       req.session.user = req.body.user;
 
@@ -20,6 +19,7 @@ exports.LogIn = function(req, res) {
               return res.send("isAdmin");
             }
             if (user[0] && !(user[0].isAdmin)) {
+              exports.connectedUsers.push(user);
               return res.send('isUser');
             }
             else {
@@ -114,6 +114,7 @@ exports.UserLookup = function(req, res) {
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
     console.log(req.session);
+    exports.connectedUsers.splice(exports.connectedUsers.indexOf(req.session.user), 1);
     req.session = null;
     console.log(req.session);
     return res.json({});

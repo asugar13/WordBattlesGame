@@ -5,7 +5,6 @@ logout.submitHandler = function(evt) {
 	$.get('/logout', function(data){
 		window.location.href = "/";
 	});
-	
 }
 
 logout.init = function() {

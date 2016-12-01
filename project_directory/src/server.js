@@ -55,6 +55,7 @@ app.get('/top20', user_routes.DisplayTop20);
 app.post('/addUser',user_routes.SignUp);
 app.delete('/admin', user_routes.DeleteUser);
 app.post('/admin', user_routes.ResetDB);
+app.post('/profile', user_routes.uploadPic);
 
 app.get('/chat', function(req, res) {
   res.render(__dirname+'/../public/chat_page.html');
@@ -65,10 +66,17 @@ app.get('/main', function(req, res) {
 });
 
 app.get('/admin', function(req, res) {
-  res.render(__dirname+'/../public/admin_page.html');
+  if (req.session.isAdmin == true){
+    res.render(__dirname+'/../public/admin_page.html');
+  }
+  else {
+    res.send("error mang");
+  }
 });
 
 app.get('/profile', function(req, res) {
+  console.log("another");
+  console.log(req.session);
   res.render(__dirname+'/../public/profile_page.html');
 });
 

@@ -1,4 +1,6 @@
 var User = require('../models/user_model');
+//var Image = require('../models/img_model');
+
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
@@ -15,6 +17,7 @@ exports.LogIn = function(req, res) {
           console.log(user);
           if (user.length > 0) {
             if(user[0].isAdmin == true) {
+              req.session.isAdmin = true; //added this line
               return res.send("isAdmin");
             }
             if (user[0] && !(user[0].isAdmin)) {
@@ -131,6 +134,14 @@ exports.ResetDB = function(req, res) {
     if (err) throw err;
     res.send('Successful Reset');
   })
+}
+
+exports.uploadPic = function(req, res){
+  console.log('hey');
+  console.log(req.session.user);
+  console.log(req.body);
+
+
 }
 
 //Signs up new user to database

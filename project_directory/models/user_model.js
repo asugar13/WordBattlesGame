@@ -32,7 +32,7 @@ var ImageSchema = new Schema(
         username: {
             type: String, required: true
         },
-        imageurl: {Type: String , required: false},
+        imageurl: {type: String , required: true},
     },
     {
         collection: 'images'

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Profile - WordBattles</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profilePageStyle.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -20,6 +20,11 @@
     <h1>Your Profile</h1>
     <div id="info">
     </div>
+    <img src="" height="200" alt="No Profile Pic">
+
+    <span id="phrase">Upload/Change your Profile Pic by choosing a file:<input type="file" onchange="profilePage.previewFile()" name="Upload/Update Profile Pic"></span><br>
+
+
     <form id="logout" action="/logout">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
     </form>

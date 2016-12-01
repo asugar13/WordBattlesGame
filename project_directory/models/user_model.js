@@ -27,8 +27,26 @@ var UserSchema = new Schema(
     }
 );
 
+var ImageSchema = new Schema(
+    {
+        username: {
+            type: String, required: true
+        },
+        imageurl: {Type: String , required: false},
+    },
+    {
+        collection: 'images'
+    }
+);
+
 // Doc for Mongoose Connections: http://mongoosejs.com/docs/connections
 mongoose.connect('mongodb://localhost/usersdb');
 
 // Doc for Mongoose Models: http://mongoosejs.com/docs/models
-module.exports = mongoose.model('User', UserSchema);
+User = mongoose.model('User', UserSchema);
+Image = mongoose.model('Image', ImageSchema);
+
+module.exports = {
+    User: User,
+    Image: Image
+  };

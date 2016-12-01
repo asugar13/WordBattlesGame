@@ -2,27 +2,27 @@
     {
         "username": "WordBattlesChampion",
         "password": "1234",
-        "score": "50"
+        "score": 50
     },
     {
         "username": "BigTimeLoser",
         "password": "2222",
-        "score": "0"
+        "score": 0
     },
     {
         "username": "Better-than-your-average",
         "password": "3333",
-        "score": "38"
+        "score": 38
     },
     {
         "username": "average_guy",
         "password": "average",
-        "score": "19"
+        "score": 19
     },
     {
         "username": "main_admin",
         "password": "admin",
-        "score": "0",
+        "score": 0,
         "isAdmin": true
     }
 ]

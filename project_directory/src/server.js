@@ -24,7 +24,6 @@ app.engine('.html', require('ejs').__express);
 app.set('views', __dirname);
 app.set('views', __dirname +'/../public');
 app.set('view engine', 'html');
-// +app.delete('/admin', user_routes.DeleteUser);
 
 
 // Set up to use a session
@@ -54,6 +53,7 @@ app.post('/addUser',user_routes.SignUp);
 app.delete('/admin', user_routes.DeleteUser);
 app.post('/admin', user_routes.ResetDB);
 app.post('/profile', user_routes.uploadPic);
+app.get('/profile_pic', user_routes.getPic);
 
 app.get('/chat', function(req, res) {
   res.render(__dirname+'/../public/chat_page.html');

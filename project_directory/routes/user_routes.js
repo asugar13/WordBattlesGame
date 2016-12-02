@@ -1,10 +1,9 @@
 var models = require('../models/user_model');
 
+exports.connectedUsers = [];
 
 exports.LogIn = function(req, res) {
     console.log('Logging In');
-
-
     if (req.body.user && req.body.password) {
       req.session.user = req.body.user;
 
@@ -20,6 +19,7 @@ exports.LogIn = function(req, res) {
               return res.send("isAdmin");
             }
             if (user[0] && !(user[0].isAdmin)) {
+              exports.connectedUsers.push(user);
               return res.send('isUser');
             }
             else {
@@ -55,13 +55,13 @@ exports.UpdateUser = function(req, res){
 
 exports.UserInfo = function(req, res) {
 
-    console.log("user session: ");
+    // console.log("user session: ");
     var user = req.session.user;
     models.User.find({username: user}, function(err, user) {
         if (err) throw err;
-        console.log(user);
+        // console.log(user);
         if (user[0]) {
-          res.json({
+          return res.json({
             answer: "OK",
             username: user[0].username,
             score: user[0].score
@@ -114,6 +114,7 @@ exports.UserLookup = function(req, res) {
 // Set the username to empty by clearing the session
 exports.Logout = function(req, res) {
     console.log(req.session);
+    exports.connectedUsers.splice(exports.connectedUsers.indexOf(req.session.user), 1);
     req.session = null;
     console.log(req.session);
     return res.json({});
@@ -137,10 +138,56 @@ exports.ResetDB = function(req, res) {
 
 exports.uploadPic = function(req, res){
   console.log('hey');
+  // console.log(req.session.user);
+  // console.log(req.body);
+  var user_name = req.session.user;
+//  console.log(user_name);
+  // console.log(imagedata);
+
+
+  models.Image.find({username: user_name}, function(err, image) {
+      //if user is already stored in the mongoDB
+      if (err) throw err;
+      var imagedata = req.body.imageURL;
+      console.log(typeof imagedata);
+      console.log(imagedata);
+
+      console.log("models.image executing");
+      if (image.length > 0) {
+        image[0].remove(function(err, data) {
+          if (err) throw err;
+          console.log("Successful Deletion")
+// data will equal the number of docs removed, not the document itself
+});
+          var the_image = new Image({username: user_name, imageurl: imagedata});
+          console.log(the_image);
+          the_image.save();
+          console.log("and more executing");
+          return res.send("goodstuff");
+        }
+      else {
+          console.log("till here");
+          var the_image = new Image({username: user_name, imageurl: imagedata});
+          console.log(the_image);
+          the_image.save();
+          console.log("and more executing");
+          return res.send("goodstuff");
+        }
+      });
+}
+
+exports.getPic = function(req, res) {
+  console.log("getPic executing");
   console.log(req.session.user);
-  console.log(req.body);
-
-
+  models.Image.find({username: req.session.user}, function(err,image){
+    if (image.length > 0){
+      var imagefile = image[0].imageurl;
+      return res.send(imagefile);
+    }
+    else {
+      return res.send("No Pic");
+    }
+  })
 }
 
 //Signs up new user to database

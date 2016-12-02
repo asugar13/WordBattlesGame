@@ -7,7 +7,7 @@ profilePage.previewFile = function (){
 
 		reader.onloadend = function () {
 				preview.src = reader.result;
-				console.log(preview.src)
+				//console.log(preview.src)
 				var toSend = {imageURL: preview.src}
 				var formatted = JSON.stringify(toSend)
 				$.ajax({
@@ -16,8 +16,8 @@ profilePage.previewFile = function (){
 						dataType: "json",
 						contentType: "application/json; charset=utf-8",
 						data: formatted,
-						success: function(response) {
-							console.log(response);
+						success: function(data) {
+							console.log(data);
 						}
 				});
 
@@ -42,7 +42,19 @@ $(document).ready(function() {
 		    p = $('<p>').text("Score: " + data.score);
 		    p.attr('id', 'score');
 		    parent.append(p);
+				return;
 		}
 	});
+
+	$.get('/profile_pic', function(data){
+		console.log(data);
+		if (data == "No Pic"){
+			return;
+		}
+		else {
+			var preview = document.querySelector('img'); //selects the query named img
+			return preview.src = data;
+		}
+	})
 
 });

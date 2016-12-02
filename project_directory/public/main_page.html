@@ -5,12 +5,14 @@
     <title>Main - WordBattles</title>
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/main.css">
 
     <!-- can add an icon if we want later
     <link rel="shortcut icon" href="%PUBLIC_URL%/<SOME ICON>.ico">
     -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -29,14 +31,21 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
     </form>
 
-    <table style="width:100%">
+    <h2>Leaderboard</h2>
+    <table id= "leaderboard" style="width:100%">
       <tr>
         <th>User ID</th>
         <th>Score</th>
-    </tr>
-
+      </tr>
     </table>
-
+    <h2>Online Users</h2>
+    <table id="online" style="width:100%">
+      <tr>
+        <th>User ID</th>
+        <th class="button_col">Profile</th>
+        <th class="button_col">Chat</th>
+      </tr>
+    </table>
 
 </body>
 </html>

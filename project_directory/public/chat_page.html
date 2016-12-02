@@ -4,38 +4,26 @@
     <meta charset="utf-8">
     <title>WordBattles - Chat</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chatStyle.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
+	 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+	<script src="../scripts/chat.js"></script>
 
 </head>
 
 <body>
-    
-    <div id="name-form">
-      <p>Enter a nick name</p>
-      <input type="text" name="user-name" id="user-name" />
-      <input type="button" class="btn" id="post-name" value="Enter" />
-    </div>
+<div id="title">
+	<p class="variousTitle">Chat Room</p>
  
 
-<div id="wrapper">
-    <div id="menu">
-        <p class="welcome">Welcome, <b><span class="name"></span></b></p>
-        <input type="button" class="btn" id="pause" value="Stop Updates" />
-        <input type="button" class="btn" id="logout" value="Forget me" />
-        <div style="clear:both"></div>
-    </div>
+<div id="wrapper">     
+    <ul id="chatBox"></ul>
      
-    <div id="chatbox"></div>
-     
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" size="63" />
-        <input type="button" class="btn"  id="submitmsg" value="Send" />
+    <form id="messageForm" action="">
+        <input id="userMsg" autocomplete="off" /><button type="submit">Send</button>
     </form>
 </div>
 

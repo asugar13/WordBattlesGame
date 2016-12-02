@@ -1,4 +1,4 @@
-var socket = io('/chatRoom');
+var socket = io();
 $(document).ready(function() {
 	$('#messageForm').submit(function(){
 		console.log($('#userMsg').val());

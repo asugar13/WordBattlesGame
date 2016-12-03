@@ -54,6 +54,8 @@ app.delete('/admin', user_routes.DeleteUser);
 app.post('/admin', user_routes.ResetDB);
 app.post('/profile', user_routes.uploadPic);
 app.get('/profile_pic', user_routes.getPic);
+app.get('/chatmsg', user_routes.msgHandler);
+
 
 app.get('/chat', function(req, res) {
   res.render(__dirname+'/../public/chat_page.html');

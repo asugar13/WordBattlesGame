@@ -6,7 +6,7 @@ chatPage.submitHandler = function(evt) {
 }
 
 chatPage.init = function() {
-	$('#chatbut').submit(this.submitHandler);
+	$('.chatbut').submit(this.submitHandler);
 }
 
 $(document).ready(function() {

@@ -17,10 +17,10 @@ $(document).ready(function() {
 			      row = $("<tr></tr>");
 			      row.append("<td>" + data.username + "</td>");
 			      row.append("<td>" + data.score + "</td>");
-			      row.append("<td> <form action=/chat><button id=chatbut class=btn type=submit> Chat</button></form> </td>");
+			      row.append("<td> <form action=/chat><button id=chatbut class=chatbut type=submit> Chat</button></form> </td>");
 
 			      $("table").append(row);
 			}
-		});	
+		});
 	});
 });

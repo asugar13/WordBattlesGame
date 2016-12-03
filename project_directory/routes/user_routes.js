@@ -35,6 +35,24 @@ exports.LogIn = function(req, res) {
     }
 };
 
+exports.msgHandler = function(req, res) {
+  console.log(req.session.user);
+  var the_score;
+  models.User.find({username: req.session.user}, function(err, user){
+    if (err) throw err;
+    user[0].score = user[0].score + 1;
+    the_score = user[0].score;
+    user[0].save(function(err){
+      if (err) throw err;
+    });
+    var toSend = {name: req.session.user, count: the_score};
+    res.send(toSend);
+});
+
+
+
+}
+
 
 exports.UpdateUser = function(req, res){
   // var object = JSON.parse(req.body);

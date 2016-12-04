@@ -54,6 +54,7 @@ app.delete('/admin', user_routes.DeleteUser);
 app.post('/admin', user_routes.ResetDB);
 app.post('/profile', user_routes.uploadPic);
 app.get('/profile_pic', user_routes.getPic);
+app.post('/chatmsg', user_routes.pointHandler)
 app.get('/chatmsg', user_routes.msgHandler);
 
 
@@ -96,8 +97,8 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     io.sockets.emit('update', user_routes.connectedUsers);
   })
-  socket.on('chatMessage', function(msg){
-	console.log(msg);
-    io.emit('chatMessage', msg);
+  socket.on('chatMessage', function(msg_data){
+  	console.log(msg_data);
+    io.emit('chatMessage', msg_data);
   });
 });

@@ -95,9 +95,11 @@ io.on('connection', function(socket){
   io.sockets.emit('update', user_routes.connectedUsers);
   socket.on('disconnect', function(){
     io.sockets.emit('update', user_routes.connectedUsers);
-  })
+  });
+
   socket.on('chatMessage', function(msg){
 	console.log(msg);
+
     io.emit('chatMessage', msg);
   });
 });

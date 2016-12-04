@@ -19,7 +19,9 @@ exports.LogIn = function(req, res) {
               return res.send("isAdmin");
             }
             if (user[0] && !(user[0].isAdmin)) {
-              exports.connectedUsers.push(user);
+              if(exports.connectedUsers.indexOf(user[0].username) == -1){
+                exports.connectedUsers.push(user[0].username);
+              }
               return res.send('isUser');
             }
             else {

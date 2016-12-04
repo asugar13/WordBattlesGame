@@ -2,10 +2,10 @@ var profilePage = {};
 var userList = [];
 
 profilePage.updateOnlineUsers = function(userList){
-	$("table#online").remove("tr:gt(0)");
+	$("table#online").find("tr:gt(0)").remove();
 	for (var i in userList) {
 		var onlineUser = $("<tr></tr>");
-		onlineUser.append("<td id=Username>" + userList[i][0].username + "</td>");
+		onlineUser.append("<td id=Username>" + userList[i] + "</td>");
 		onlineUser.append("<td><button>Profile</button></td>");
 		onlineUser.append("<td><form action=/chat><button type='submit' class='chatbut'>Chat</button></form></td>");
 		$("table#online").append(onlineUser);

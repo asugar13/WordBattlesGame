@@ -1,3 +1,38 @@
 #phrase {
   display: block;
 }
+
+.button_col{
+  width: 10%;
+}
+
+.BOX{
+  margin: auto;
+  padding-left: 100px;
+
+}
+
+
+#searchbar {
+  width: 350px;
+}
+
+.logoutbut {
+    position:absolute;
+    transition: .5s ease;
+    top: 10%;
+    left: 80%;
+}
+
+html body{
+  background-color: #C7F8F8;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 2000;
+
+}
+
+#title {
+  text-align: center;
+
+}

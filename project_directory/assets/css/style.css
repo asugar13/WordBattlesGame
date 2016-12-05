@@ -1,12 +1,37 @@
 /*style file*/
-body {
+/*body {
     font: 400 16px/1.5 'DINPro', 'Helvetica', sans-serif;
+}*/
+
+
+
+
+.BOX{
+  margin: auto;
+  padding-left: 100px;
+  padding-right:150px;
+
 }
 
-#LogInMenu {
-  position: relative;
-  top: -20px;
-  left: 20px;
-  background-color: white;
-  width: 500px;
+
+
+html body{
+  background-color: #C7F8F8;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 2000;
+
+}
+
+#inputfields {
+  width:400px;
+}
+
+#log-sign-but {
+  width: 150px;
+}
+
+#title {
+  text-align: center;
+
 }

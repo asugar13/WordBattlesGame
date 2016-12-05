@@ -10,6 +10,7 @@
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
     <script src="../scripts/profileScript.js"></script>
     <script src="../scripts/logoutScript.js"></script>
@@ -17,7 +18,11 @@
 	<script src="../scripts/chatRedirect.js"></script>
 </head>
 <body>
-    <h1>Your Profile</h1>
+  <div class="container">
+
+
+    <h1 id="title">Your Profile</h1>
+    <div class="BOX">
     <div id="info">
     </div>
     <img src="" height="200" alt="No Profile Pic">
@@ -26,18 +31,19 @@
       <input type="file" onchange="profilePage.previewFile()" name="Upload/Update Profile Pic">
     <br>
 
-
+    <div class="logoutbut">
     <form id="logout" action="/logout">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
-    </form>
+        <button class="btn btn-lg btn-warning"  type="submit">Logout</button>
+    </form></div>
 	<br>
 	<p>Search for Player(s):</p>
+  <div id="searchbar">
 	<input  id="inputUser" class="form-control" placeholder="User ID" name="user" required >
         <button id="userSearch" class="btn btn-lg btn-primary btn-block">Search</button>
-
+</div>
 	<table style="width:100%">
 
-	    </table>
-
+  </table></div>
+</div>
 </body>
 </html>

@@ -20,25 +20,30 @@
 
 </head>
 <body>
-    <h1>WELCOME TO WORDBATTLES</h1>
+  <div class="container">
+    <h1 id="title">WELCOME TO WORDBATTLES</h1>
 
-<div id="LogInMenu">
+<div class="BOX">
     <form id="LogInForm" class="form-signin" action="/login" method="post">
             <h2 class="form-signin-heading" >Please login</h2>
+            <div id="inputfields">
             <label for="inputEmail" class="sr-only">Email address</label>
             <input  id="inputEmail" class="form-control" placeholder="User ID" name="user" required >
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+          </div>
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>
+            <div id="log-sign-but">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
           </form>
           <button id="signUpbut" class="btn btn-lg btn-primary btn-block">Sign Up</button>
-
+        </div>
 
 </div>
+<div class="container">
 </body>
 </html>

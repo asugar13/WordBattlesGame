@@ -19,7 +19,9 @@ exports.LogIn = function(req, res) {
               return res.send("isAdmin");
             }
             if (user[0] && !(user[0].isAdmin)) {
-              exports.connectedUsers.push(user);
+              if(exports.connectedUsers.indexOf(user[0].username) == -1){
+                exports.connectedUsers.push(user[0].username);
+              }
               return res.send('isUser');
             }
             else {
@@ -35,9 +37,7 @@ exports.LogIn = function(req, res) {
     }
 };
 
-exports.msgHandler = function(req, res) {
-  console.log(req.session.user);
-  var the_score;
+exports.pointHandler = function(req, res){
   models.User.find({username: req.session.user}, function(err, user){
     if (err) throw err;
     user[0].score = user[0].score + 1;
@@ -45,12 +45,18 @@ exports.msgHandler = function(req, res) {
     user[0].save(function(err){
       if (err) throw err;
     });
+  });
+  res.send("pointAdded");
+}
+
+exports.msgHandler = function(req, res) {
+  console.log(req.session.user);
+  var the_score;
+  models.User.find({username: req.session.user}, function(err, user){
+    if (err) throw err;
     var toSend = {name: req.session.user, count: the_score};
     res.send(toSend);
-});
-
-
-
+  });
 }
 
 

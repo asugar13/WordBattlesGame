@@ -23,30 +23,35 @@
     <script src="../scripts/chatRedirect.js"></script>
 
 </head>
+
 <body>
-    <h1>MAIN PAGE</h1>
+  <div class="container">
+    <h1 id="title">MAIN MENU</h1>
     <form id="profile" action="/profile" method="get">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Profile</button>
+        <button class="btn btn-lg btn-info" type="submit">Profile</button>
     </form>
-    <form id="logout" action="/logout">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
-    </form>
+    <div class="logoutbut"><form id="logout" action="/logout">
+        <button class="btn btn-lg btn-warning" type="submit">Logout</button>
+    </form></div>
 
     <h2>Leaderboard</h2>
-    <table id= "leaderboard" style="width:100%">
+    <div class="jumbotron">
+    <div class="BOX"><table id= "leaderboard" style="width:100%">
       <tr>
         <th>User ID</th>
         <th>Score</th>
       </tr>
-    </table>
+    </table></div></div>
     <h2>Online Users</h2>
-    <table id="online" style="width:100%">
+    <div class="jumbotron">
+    <div class="BOX"><table id="online" style="width:100%">
       <tr>
         <th>User ID</th>
         <th class="button_col">Profile</th>
         <th class="button_col">Chat</th>
       </tr>
-    </table>
-
+    </table></div></div>
+</div>
 </body>
+
 </html>

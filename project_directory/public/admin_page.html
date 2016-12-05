@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Admin - WordBattles</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/adminpage.css">
+
 
     <!-- can add an icon if we want later
     <link rel="shortcut icon" href="%PUBLIC_URL%/<SOME ICON>.ico">
@@ -24,20 +25,27 @@
 
 </head>
 <body>
-    <h1>ADMIN PAGE</h1>
+  <div class="container">
+    <h1 id="title">ADMIN DASHBOARD</h1>
     <div id="focusdiv" hidden>User ID: <span name="user_id"></span> <br>
        User password: <input type="text" name="password" hidden></input> <br>
        User score: <input type="text" name="score" hidden></input>        <button class="btn btn-lg btn-primary btn-block" onclick="admin.updateHandler(this)">Update User</button>
  </div>
+    <div>
     <form id="profile" action="/profile" method="get">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Profile</button>
+        <button class="btn btn-lg btn-info" type="submit">Profile</button>
     </form>
+  </div> <br>
+    <div class="logoutbut">
     <form id="logout" action="/logout">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
+        <button class="btn btn-lg btn-warning" type="submit">Logout</button>
     </form>
-    <button class="btn btn-lg btn-primary btn-block" onclick="admin.resetDBhandler()">Reset Database</button>
+  </div>
 
-    <button class="btn btn-lg btn-primary btn-block" onclick="admin.toggleAddForm()">Add User</button>
+    <button class="btn btn-lg btn-info" onclick="admin.resetDBhandler()">Reset Database</button>
+<br>
+    <button class="btn btn-lg btn-info" onclick="admin.toggleAddForm()">Add User</button>
+
     <div id="AddUserForm">
         <input  id="inputEmail" class="form-control" name="user" placeholder="User ID" required >
         <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
@@ -48,6 +56,9 @@
 
 
 
+
+    <div class="jumbotron">
+      <div class="BOX">
     <table style="width:100%">
       <tr>
         <th>User ID</th>
@@ -56,7 +67,7 @@
         <th>Delete/Edit User</th>
       </tr>
 
-    </table>
-
+    </table></div></div>
+</div>
 </body>
 </html>

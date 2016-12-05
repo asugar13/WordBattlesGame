@@ -59,11 +59,21 @@ app.get('/chatmsg', user_routes.msgHandler);
 
 
 app.get('/chat', function(req, res) {
-  res.render(__dirname+'/../public/chat_page.html');
+  if (req.session.user){
+    res.render(__dirname+'/../public/chat_page.html');
+  }
+  else {
+    res.send("Error: No Permission");
+  }
 });
 
 app.get('/main', function(req, res) {
-  res.render(__dirname+'/../public/main_page.html');
+  if (req.session.user){
+    res.render(__dirname+'/../public/main_page.html');
+  }
+  else {
+    res.send("Error: No Permission");
+  }
 });
 
 app.get('/admin', function(req, res) {
@@ -71,14 +81,17 @@ app.get('/admin', function(req, res) {
     res.render(__dirname+'/../public/admin_page.html');
   }
   else {
-    res.send("error mang");
+    res.send("Error: No Permission");
   }
 });
 
 app.get('/profile', function(req, res) {
-  console.log("another");
-  console.log(req.session);
-  res.render(__dirname+'/../public/profile_page.html');
+  if (req.session.user){
+    res.render(__dirname+'/../public/profile_page.html');
+  }
+  else {
+    res.send("Error: No Permission");
+  }
 });
 
 app.get('/signup', function(req, res) {

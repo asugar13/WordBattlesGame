@@ -1,11 +1,24 @@
-#ANNOUNCEMENTS
-## 1. Delete whatever is in project_directory/database and populate the database yourself (will need an absolute path for the .json file most likely):
+# WordBattles
+
+##Deployment
+Navigate to project_directory folder in the terminal
+Run the follow command line to install the node components listed in package.json 
+```
+npm install
+```
+Run the following command lines to set up the database and load sample data
+```
+mkdir database
+mongod --dbpath database
+```
+In a new terminal, run
 ```
 mongoimport --db usersdb --collection users --type json --file data/user_database.json --jsonArray
 ```
-
-
-# WordBattles
+Run the following command line to startup the web server
+```
+node src/server.js
+```
 
 ##Working directory (project_directory/):
 
